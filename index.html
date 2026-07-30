@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Logic Save Editor</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!--=========================
+        TITLE BAR
+    ==========================-->
+
+    <header id="titlebar">
+
+        <div class="title">
+            🧱 Build Logic Save Editor
+            <span class="version">Stage 1</span>
+        </div>
+
+        <div class="toolbar">
+
+            <button id="importBtn">Import</button>
+
+            <button id="exportBtn">Export</button>
+
+            <button id="copyBtn">Copy</button>
+
+            <button id="pasteBtn">Paste</button>
+
+            <button id="undoBtn" disabled>Undo</button>
+
+            <button id="redoBtn" disabled>Redo</button>
+
+        </div>
+
+    </header>
+
+
+    <!--=========================
+        MAIN
+    ==========================-->
+
+    <main>
+
+        <!-- LEFT PANEL -->
+
+        <aside id="objectPanel">
+
+            <div class="panelHeader">
+
+                Objects
+
+                <span id="objectCount">0</span>
+
+            </div>
+
+            <input
+                id="searchObjects"
+                type="text"
+                placeholder="Search..."
+            >
+
+            <div id="objectList">
+
+                <!-- Filled by JS -->
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- CENTER -->
+
+        <section id="workspace">
+
+            <div class="panelHeader">
+                Save String
+            </div>
+
+            <textarea
+                id="saveInput"
+                spellcheck="false"
+                placeholder="Paste Build Logic save here..."
+            ></textarea>
+
+            <div id="statusBar">
+
+                Ready.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT -->
+
+        <aside id="properties">
+
+            <div class="panelHeader">
+
+                Properties
+
+            </div>
+
+            <div id="propertyEditor">
+
+                <div class="empty">
+
+                    No object selected.
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+
+    <!--=========================
+        BOTTOM
+    ==========================-->
+
+    <footer id="bottomPanel">
+
+        <div class="panelHeader">
+
+            Console
+
+        </div>
+
+        <div id="console">
+
+            <div class="consoleLine">
+
+                Build Logic Save Editor initialized.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="js/blocks.js"></script>
+<script src="js/materials.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/encoder.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
