@@ -341,6 +341,14 @@ aside,
 
 }
 
+.consoleLineErr{
+
+    color:#AA0000;
+
+    margin-bottom:4px;
+
+}
+
 /* Scrollbars */
 
 ::-webkit-scrollbar{
