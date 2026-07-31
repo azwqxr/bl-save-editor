@@ -1,0 +1,972 @@
+{
+    "0": {
+        "name": "Color Light",
+        "category": "Outputs",
+        "desc": "Basic light."
+    },
+    "1": {
+        "name": "AND Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when all the inputs are ON."
+    },
+    "2": {
+        "name": "XOR Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when the number of ON inputs are odd."
+    },
+    "3": {
+        "name": "Randomizer",
+        "category": "Logic",
+        "desc": "When enabled, this component will output randomly from the Mode slected. Click to change from Mode [01 10] to [10 01 11]!"
+    },
+    "4": {
+        "name": "HEX LCD Display",
+        "category": "Outputs",
+        "desc": "This display is useful to display numbers in Hexadecimal (0-F). It has a LCD look."
+    },
+    "5": {
+        "name": "HEX Pixel Color Display",
+        "category": "Outputs",
+        "desc": "This display is useful to display numbers in Hexadecimal (0-F). It has a pixelated look."
+    },
+    "6": {
+        "name": "Barrier",
+        "category": "Building",
+        "desc": "Giant animated barrier."
+    },
+    "7": {
+        "name": "Read Output",
+        "category": "Utility",
+        "desc": "[OLD STUFF!] This component reads the input and display the value."
+    },
+    "8": {
+        "name": "Color Neon Light",
+        "category": "Outputs",
+        "desc": "Basic NEON light."
+    },
+    "9": {
+        "name": "Green Screen",
+        "category": "Utility",
+        "desc": "Useful to make custom backgrounds."
+    },
+    "b": {
+        "name": "NAND Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when all the inputs are OFF."
+    },
+    "c": {
+        "name": "NOR Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when at least one input is OFF."
+    },
+    "d": {
+        "name": "NOT Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when the input is OFF."
+    },
+    "e": {
+        "name": "OR Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when at least one input is ON."
+    },
+    "f": {
+        "name": "Splitter",
+        "category": "Utility",
+        "desc": "Splits the input value into 2 outputs."
+    },
+    "g": {
+        "name": "XNOR Gate",
+        "category": "Logic",
+        "desc": "Outputs ON when the number of ON inputs are even."
+    },
+    "h": {
+        "name": "Counter",
+        "category": "Logic",
+        "desc": "When triggered, the counter will count up or down depending of the input choosen. You can chain them by connecting the [- output] or [+ output] to the input of another counter."
+    },
+    "i": {
+        "name": "8 Bit Shifter Counter",
+        "category": "Logic",
+        "desc": "This counter shifts one bit to the right or left. 8 bits."
+    },
+    "j": {
+        "name": "Number Counter",
+        "category": "Logic",
+        "desc": "When triggered, the counter will stop counting at 9 (Decimal), insted of 15 (Hexadecimal). You can use the [- Output] or [+ Output] to chain multiple counters. Useful to display numbers."
+    },
+    "k": {
+        "name": "Color No Light",
+        "category": "Outputs",
+        "desc": "Unlike other lights, this light only changes color, emitting no light."
+    },
+    "l": {
+        "name": "Gated SR Latch",
+        "category": "Logic",
+        "desc": "When [clk] is triggered, the latch will change state hange state according to the ON input. If both inputs are activated, it will toggle itself."
+    },
+    "m": {
+        "name": "Full Adder",
+        "category": "Logic",
+        "desc": "This adder adds all the ON inputs as a 1 and output the corresponding value."
+    },
+    "n": {
+        "name": "SR Latch",
+        "category": "Logic",
+        "desc": "Set 1 input to ON to trigger the latch on one side."
+    },
+    "o": {
+        "name": "Toggle Output",
+        "category": "Utility",
+        "desc": "This block toggles itself when the input is triggered."
+    },
+    "p": {
+        "name": "Delay",
+        "category": "Timing",
+        "desc": "The Delay [Repeater] wait until a certain amout of time until it realeases the pulse you sent."
+    },
+    "q": {
+        "name": "Timer",
+        "category": "Timing",
+        "desc": "When set to ON, the Timer will create a timing loop of ON/OFF according to the delay choosen."
+    },
+    "r": {
+        "name": "Wifi",
+        "category": "Utility",
+        "desc": "Useful to hide wires. The output number corresponds to the input number."
+    },
+    "s": {
+        "name": "Button",
+        "category": "Inputs",
+        "desc": "Outputs when an allowed player clicks on the button."
+    },
+    "t": {
+        "name": "Sign",
+        "category": "Utility",
+        "desc": "Adds text to your world!"
+    },
+    "u": {
+        "name": "Lever",
+        "category": "Inputs",
+        "desc": "Outputs when the Lever is toggled by an allowed player."
+    },
+    "v": {
+        "name": "Toggle Button",
+        "category": "Inputs",
+        "desc": "[OLD STUFF!] Outputs when the Button is toggled by an allowed player."
+    },
+    "w": {
+        "name": "Instant Button",
+        "category": "Inputs",
+        "desc": "Unlike the normal Button, this one can be triggered faster."
+    },
+    "x": {
+        "name": "HEX Color Display",
+        "category": "Outputs",
+        "desc": "This display is useful to display numbers in Hexadecimal (0-F)."
+    },
+    "y": {
+        "name": "HEX Squared Color Display",
+        "category": "Outputs",
+        "desc": "This display is useful to display numbers in Hexadecimal (0-F). It has a square look."
+    },
+    "z": {
+        "name": "RGB Light",
+        "category": "Outputs",
+        "desc": "Light that can mix Red Green and Blue."
+    },
+    "a": {
+        "name": "Barrier Block",
+        "category": "Building",
+        "desc": "Barrier Block."
+    },
+    "K": {
+        "name": "Invisible Block",
+        "category": "Building",
+        "desc": "This block is invisible and collidable."
+    },
+    "A": {
+        "name": "TorchWATT_Down",
+        "category": "Building",
+        "desc": ""
+    },
+    "B": {
+        "name": "SignWATT_Down",
+        "category": "Utility",
+        "desc": ""
+    },
+    "C": {
+        "name": "SignWATT",
+        "category": "Utility",
+        "desc": ""
+    },
+    "D": {
+        "name": "TorchWATT",
+        "category": "Building",
+        "desc": ""
+    },
+    "E": {
+        "name": "Day Controller",
+        "category": "Utility",
+        "desc": "Controls the sun's position."
+    },
+    "F": {
+        "name": "_Legacy Kill Module",
+        "category": "Utility",
+        "desc": "Old Kill Module. Used to remove health from players. Click on it for settings."
+    },
+    "G": {
+        "name": "Block",
+        "category": "Building",
+        "desc": "1x1 Block."
+    },
+    "H": {
+        "name": "Stair",
+        "category": "Building",
+        "desc": "Stair."
+    },
+    "I": {
+        "name": "Ladder",
+        "category": "Building",
+        "desc": "Ladder can be climbed."
+    },
+    "J": {
+        "name": "Torch",
+        "category": "Building",
+        "desc": "Emmits light."
+    },
+    "L": {
+        "name": "Slab",
+        "category": "Building",
+        "desc": "1/2 Block."
+    },
+    "M": {
+        "name": "Inner Stair",
+        "category": "Building",
+        "desc": "Inner Stair."
+    },
+    "N": {
+        "name": "Outer Stair",
+        "category": "Building",
+        "desc": "Outer Stair."
+    },
+    "O": {
+        "name": "Color Neon Light 2",
+        "category": "Outputs",
+        "desc": "A light that when turned on, glows. Otherwise, the light is black."
+    },
+    "P": {
+        "name": "Full Subtractor",
+        "category": "Utility",
+        "desc": "Subtracts all the ON inputs."
+    },
+    "Q": {
+        "name": "Plate",
+        "category": "Utility",
+        "desc": "A thin slab."
+    },
+    "R": {
+        "name": "Piston",
+        "category": "Building",
+        "desc": "This non-sticky piston can push movable blocks. It cannot move itself when powered."
+    },
+    "S": {
+        "name": "4 Bit Register",
+        "category": "Logic",
+        "desc": ""
+    },
+    "T": {
+        "name": "Dip Switches",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "U": {
+        "name": "8x8 RGB2 Panel",
+        "category": "Building",
+        "desc": ""
+    },
+    "V": {
+        "name": "Interval Calculator",
+        "category": "Utility",
+        "desc": ""
+    },
+    "W": {
+        "name": "8 Bit Splitter",
+        "category": "Utility",
+        "desc": ""
+    },
+    "X": {
+        "name": "EEPROM",
+        "category": "Utility",
+        "desc": ""
+    },
+    "Y": {
+        "name": "LED",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "Z": {
+        "name": "8 Bit AND Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "`": {
+        "name": "8 Bit NOR Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "!": {
+        "name": "8 Bit OR Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "@": {
+        "name": "8 Bit XOR Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "&": {
+        "name": "8 Bit NAND Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "*": {
+        "name": "8 Bit XNOR Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "(": {
+        "name": "Text Button",
+        "category": "Inputs",
+        "desc": ""
+    },
+    ")": {
+        "name": "Command Block",
+        "category": "Building",
+        "desc": ""
+    },
+    ".": {
+        "name": "4 Bit Shifter Counter",
+        "category": "Logic",
+        "desc": "This counter shifts one bit to the right or left. 4 bits."
+    },
+    ",": {
+        "name": "Chair",
+        "category": "Building",
+        "desc": "Sit and relax."
+    },
+    "<": {
+        "name": "HEX Color Display 2",
+        "category": "Outputs",
+        "desc": ""
+    },
+    ">": {
+        "name": "Text Panel",
+        "category": "Building",
+        "desc": "A simple panel that lets you write all english and french common characters."
+    },
+    "-": {
+        "name": "2 Bit Multiplier",
+        "category": "Logic",
+        "desc": "A really old block used to multiply 2 bits."
+    },
+    "+": {
+        "name": "Door",
+        "category": "Building",
+        "desc": "A clickable door. How to place two doors: Place the first one, then rotate the second one so that it is already in the open position when placed."
+    },
+    "=": {
+        "name": "Electric Door",
+        "category": "Building",
+        "desc": "A powered door. How to place two electric doors: Place the first one, then rotate the second one so that it is already in the open position when placed."
+    },
+    "[": {
+        "name": "Sticky Piston",
+        "category": "Building",
+        "desc": "This sticky piston can push movable blocks, and retract them. It cannot move itself when powered."
+    },
+    "]": {
+        "name": "TNT",
+        "category": "Building",
+        "desc": "TNT!"
+    },
+    "{": {
+        "name": "Empty Block",
+        "category": "Building",
+        "desc": "A non-collidable block that can be used to break tnt impact."
+    },
+    "}": {
+        "name": "RGB2 Light",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "/": {
+        "name": "Corner Pane",
+        "category": "Building",
+        "desc": ""
+    },
+    ":": {
+        "name": "Pane",
+        "category": "Building",
+        "desc": ""
+    },
+    "_": {
+        "name": "RGB2 Light Panel",
+        "category": "Building",
+        "desc": ""
+    },
+    "|": {
+        "name": "Block Placer",
+        "category": "Building",
+        "desc": ""
+    },
+    "#0": {
+        "name": "8 Bit Buffer",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#1": {
+        "name": "4 Sides Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#2": {
+        "name": "5 Sides Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#3": {
+        "name": "6 Sides Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#4": {
+        "name": "4 LEDs",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#5": {
+        "name": "TNT Activator",
+        "category": "Building",
+        "desc": ""
+    },
+    "#6": {
+        "name": "4 Bit Comparator",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#7": {
+        "name": "8 Bit Register",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#8": {
+        "name": "16x16 RGB2 Panel",
+        "category": "Building",
+        "desc": ""
+    },
+    "#9": {
+        "name": "4 RGB Light Panels",
+        "category": "Building",
+        "desc": ""
+    },
+    "#a": {
+        "name": "D Flip Flop",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#b": {
+        "name": "Beam 1x4",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#c": {
+        "name": "Beam 1x7",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#d": {
+        "name": "16 Bit EEPROM",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#e": {
+        "name": "Double Dabble Chip",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#f": {
+        "name": "Laser",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#g": {
+        "name": "Laser Detector",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "#h": {
+        "name": "Transmitter",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#i": {
+        "name": "D Latch",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#j": {
+        "name": "T Flip Flop",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#k": {
+        "name": "4 Sides Pole 2",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#l": {
+        "name": "Color Light Panel",
+        "category": "Building",
+        "desc": ""
+    },
+    "#m": {
+        "name": "Corner Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#n": {
+        "name": "Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#o": {
+        "name": "T Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#p": {
+        "name": "3 Sides Pole",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#q": {
+        "name": "RGB Light Panel",
+        "category": "Building",
+        "desc": ""
+    },
+    "#r": {
+        "name": "Buzzer",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#s": {
+        "name": "Spawn",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#t": {
+        "name": "EMERGENCY",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#u": {
+        "name": "Speaker",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#v": {
+        "name": "Teleport Module A",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#w": {
+        "name": "Teleport Module B",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#x": {
+        "name": "Pressure Plate",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "#y": {
+        "name": "Don't Press Button",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "#z": {
+        "name": "Plate Button",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "%0": {
+        "name": "Controllable Color Display",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "%1": {
+        "name": "Loaded Gate",
+        "category": "Logic",
+        "desc": ""
+    },
+    "%2": {
+        "name": "Light Button",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "#A": {
+        "name": "Complex Counter",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#B": {
+        "name": "NUCLEAR TNT",
+        "category": "Building",
+        "desc": ""
+    },
+    "#C": {
+        "name": "Phosphor Light",
+        "category": "Outputs",
+        "desc": "A light that uses phosphor to glow!"
+    },
+    "#D": {
+        "name": "Trap Door",
+        "category": "Building",
+        "desc": ""
+    },
+    "#E": {
+        "name": "Electric Trap Door",
+        "category": "Building",
+        "desc": ""
+    },
+    "#F": {
+        "name": "RGB Neon Light",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#G": {
+        "name": "RGB2 Neon Light",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#H": {
+        "name": "Inverted Double Dabble Chip",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#I": {
+        "name": "Triangular Stair",
+        "category": "Building",
+        "desc": ""
+    },
+    "#J": {
+        "name": "Physics Block",
+        "category": "Building",
+        "desc": "[ALPHA] Activate to transform a region into physics!"
+    },
+    "#K": {
+        "name": "Sticky Block",
+        "category": "Building",
+        "desc": ""
+    },
+    "#L": {
+        "name": "8 Bit Multiplier",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#M": {
+        "name": "16 Bit Multiplier",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#N": {
+        "name": "8 Bit Divider",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#O": {
+        "name": "16 Bit Divider",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#P": {
+        "name": "Obsidian",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#Q": {
+        "name": "Air Block",
+        "category": "Building",
+        "desc": ""
+    },
+    "#R": {
+        "name": "_Legacy Player Detector",
+        "category": "Inputs",
+        "desc": "A component that can be used to get the amount of players in a certain region. This is the legacy version, please use the recent version."
+    },
+    "#S": {
+        "name": "Quick NOT",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#T": {
+        "name": "Reinforced Block",
+        "category": "Building",
+        "desc": ""
+    },
+    "#U": {
+        "name": "Clay Block",
+        "category": "Building",
+        "desc": ""
+    },
+    "#V": {
+        "name": "Color Detector",
+        "category": "Inputs",
+        "desc": ""
+    },
+    "#W": {
+        "name": "8 Bit Adder",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#X": {
+        "name": "16 Bit Adder",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#Y": {
+        "name": "D Flip",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#Z": {
+        "name": "Mini HEX Color Display",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "#!": {
+        "name": "HTTP Transmitter",
+        "category": "Utility",
+        "desc": "Using the web, this transmitter can transmit POST requests and GET requests. Make your own API in order to make it work!"
+    },
+    "#`": {
+        "name": "Loki Spawner",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#>": {
+        "name": "Junction Block",
+        "category": "Building",
+        "desc": "Allows several blocks of different colors to interconnect."
+    },
+    "#|": {
+        "name": "Stair Chair",
+        "category": "Building",
+        "desc": "A chair that can be combined with stairs!"
+    },
+    "#-": {
+        "name": "Solid Chair",
+        "category": "Building",
+        "desc": "A ticker version of the original chair!"
+    },
+    "#(": {
+        "name": "Slab Chair",
+        "category": "Building",
+        "desc": "A chair that looks like a slab!"
+    },
+    "#)": {
+        "name": "Firework Module",
+        "category": "Utility",
+        "desc": "Use this to celebrate!"
+    },
+    "#@": {
+        "name": "_Legacy Keypad",
+        "category": "Inputs",
+        "desc": "Useful to lock your doors! (Legacy version, no code encoding)"
+    },
+    "#&": {
+        "name": "Keypad",
+        "category": "Inputs",
+        "desc": "Useful to lock your doors!"
+    },
+    "#[": {
+        "name": "16 Bit Shifter Counter",
+        "category": "Logic",
+        "desc": ""
+    },
+    "#^": {
+        "name": "Illegal Piston",
+        "category": "Building",
+        "desc": "This illegal piston can push activated pistons!"
+    },
+    "#:": {
+        "name": "Illegal Sticky Piston",
+        "category": "Building",
+        "desc": "This sticky illegal piston can push activated pistons!"
+    },
+    "#*": {
+        "name": "1 Bit 1:16 Demux",
+        "category": "Logic",
+        "desc": "1 Bit 1:16 Demultiplexer"
+    },
+    "#=": {
+        "name": "1 Bit 1:8 Demux",
+        "category": "Logic",
+        "desc": "1 Bit 1:8 Demultiplexer"
+    },
+    "#+": {
+        "name": "4 Bit 4:1 Mux",
+        "category": "Logic",
+        "desc": "4 Bit 4:1 Multiplexer"
+    },
+    "#_": {
+        "name": "8 Bit 2:1 Mux",
+        "category": "Logic",
+        "desc": "8 Bit 2:1 Multiplexer"
+    },
+    "#$": {
+        "name": "8 Bit 8:1 Mux",
+        "category": "Logic",
+        "desc": "8 Bit 8:1 Multiplexer"
+    },
+    "#<": {
+        "name": "4 Bit 16:1 Mux",
+        "category": "Logic",
+        "desc": "4 Bit 16:1 Multiplexer"
+    },
+    "#,": {
+        "name": "4 Bit Wifi",
+        "category": "Utility",
+        "desc": "Useful to hide wires. The output number corresponds to the input number."
+    },
+    "#/": {
+        "name": "Perfect TNT",
+        "category": "Building",
+        "desc": "No particles, parts goes in perfect directions."
+    },
+    "'": {
+        "name": "Player Detector",
+        "category": "Inputs",
+        "desc": "A component that can be used to get the amount of players in a certain region."
+    },
+    "\"": {
+        "name": "Kill Module",
+        "category": "Utility",
+        "desc": "Removes health from players. Click on it for settings."
+    },
+    "#~": {
+        "name": "Checkered Block",
+        "category": "Building",
+        "desc": "A checkred block!"
+    },
+    "#]": {
+        "name": "Sign 1x2",
+        "category": "Utility",
+        "desc": "Adds text to your world!"
+    },
+    "#{": {
+        "name": "Sign 1x2WATT",
+        "category": "Utility",
+        "desc": ""
+    },
+    "#}": {
+        "name": "Sign 1x2WATT_Down",
+        "category": "Utility",
+        "desc": ""
+    },
+    "# ": {
+        "name": "Cake",
+        "category": "Utility",
+        "desc": "A cake for 3M Visits!!! [or for your own wishes]"
+    },
+    "%d": {
+        "name": "Complex Number Counter",
+        "category": "Logic",
+        "desc": ""
+    },
+    "%a": {
+        "name": "Block Painter",
+        "category": "Building",
+        "desc": "Paint blocks using RGB2, the Painted Color or a saved color!"
+    },
+    "%b": {
+        "name": "8 Bit Synchronous Randomizer",
+        "category": "Logic",
+        "desc": "An 8 bit synchronous randomizer [that requires a pulse to update] with a custom 8 bit max value!"
+    },
+    "%c": {
+        "name": "Precise Synchronous Randomizer",
+        "category": "Logic",
+        "desc": "A precise synchronous randomizer [that requires a pulse to update] which you can configure by clicking on it!"
+    },
+    "%e": {
+        "name": "Shared EEPROM",
+        "category": "Utility",
+        "desc": ""
+    },
+    "%f": {
+        "name": "Slab Spawn",
+        "category": "Building",
+        "desc": ""
+    },
+    "%g": {
+        "name": "Checkpoint",
+        "category": "Utility",
+        "desc": ""
+    },
+    "%h": {
+        "name": "Slab Checkpoint",
+        "category": "Building",
+        "desc": ""
+    },
+    "%i": {
+        "name": "Spotlight",
+        "category": "Outputs",
+        "desc": ""
+    },
+    "\u0002": {
+        "name": "Beam 1x2",
+        "category": "Utility",
+        "desc": ""
+    },
+    "\u0003": {
+        "name": "Beam 1x3",
+        "category": "Utility",
+        "desc": ""
+    },
+    "\u0004": {
+        "name": "Beam 1x5",
+        "category": "Utility",
+        "desc": ""
+    },
+    "\u0005": {
+        "name": "Beam 1x6",
+        "category": "Utility",
+        "desc": ""
+    },
+    "\u0006": {
+        "name": "Beam 1x8",
+        "category": "Utility",
+        "desc": ""
+    },
+    "%j": {
+        "name": "RGB2 Phosphor Light",
+        "category": "Outputs",
+        "desc": "An RGB2 light that uses phosphor to glow!"
+    },
+    "%k": {
+        "name": "8 Bit Shift Register",
+        "category": "Logic",
+        "desc": "Bidirectional Shift Register, use L [Left] and R [Right] inputs to chain."
+    },
+    "%l": {
+        "name": "Synchronous Randomizer",
+        "category": "Logic",
+        "desc": "When pulsed, this component will output randomly from the Mode slected. Click to change from Mode [01 10] to [10 01 11]!"
+    },
+    "%m": {
+        "name": "Precise Randomizer",
+        "category": "Logic",
+        "desc": "A precise randomizer which you can configure by clicking on it!"
+    }
+}
