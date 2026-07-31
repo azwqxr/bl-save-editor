@@ -5,88 +5,46 @@
 ========================================
 */
 
-const BLOCKS = {
+let BLOCKS = {};
 
-    // Building
+/*
+Load ItemsList.json from root directory
+*/
+async function loadBlocks() {
 
-    "G": { name: "Block", category: "Building" },
-    "H": { name: "Stair", category: "Building" },
-    "I": { name: "Ladder", category: "Building" },
-    "J": { name: "Torch", category: "Building" },
-    "L": { name: "Slab", category: "Building" },
-    "M": { name: "Inner Stair", category: "Building" },
-    "N": { name: "Outer Stair", category: "Building" },
-    "Q": { name: "Plate", category: "Building" },
-    "+": { name: "Door", category: "Building" },
-    "=": { name: "Electric Door", category: "Building" },
-    "[": { name: "Sticky Piston", category: "Building" },
-    "]": { name: "TNT", category: "Building" },
-    "{": { name: "Empty Block", category: "Building" },
-    "/": { name: "Corner Pane", category: "Building" },
-    ":": { name: "Pane", category: "Building" },
-    ",": { name: "Chair", category: "Building" },
+    try {
 
-    // Logic
+        const response = await fetch("/ItemsList.json");
 
-    "1": { name: "AND Gate", category: "Logic" },
-    "b": { name: "NAND Gate", category: "Logic" },
-    "c": { name: "NOR Gate", category: "Logic" },
-    "d": { name: "NOT Gate", category: "Logic" },
-    "e": { name: "OR Gate", category: "Logic" },
-    "2": { name: "XOR Gate", category: "Logic" },
-    "g": { name: "XNOR Gate", category: "Logic" },
-    "f": { name: "Splitter", category: "Logic" },
+        if (!response.ok) {
+            throw new Error(
+                `Failed to load ItemsList.json (${response.status})`
+            );
+        }
 
-    // Counters
+        BLOCKS = await response.json();
 
-    "h": { name: "Counter", category: "Counters" },
-    "i": { name: "8 Bit Shifter Counter", category: "Counters" },
-    ".": { name: "4 Bit Shifter Counter", category: "Counters" },
-    "j": { name: "Number Counter", category: "Counters" },
-    "#A": { name: "Complex Counter", category: "Counters" },
+        console.log(
+            "Loaded",
+            Object.keys(BLOCKS).length,
+            "blocks"
+        );
 
-    // Inputs
+    } catch (error) {
 
-    "s": { name: "Button", category: "Inputs" },
-    "u": { name: "Lever", category: "Inputs" },
-    "w": { name: "Instant Button", category: "Inputs" },
-    "#&": { name: "Keypad", category: "Inputs" },
-    "'": { name: "Player Detector", category: "Inputs" },
-    "#x": { name: "Pressure Plate", category: "Inputs" },
+        console.error(
+            "Could not load ItemsList.json:",
+            error
+        );
 
-    // Outputs
+    }
 
-    "Y": { name: "LED", category: "Outputs" },
-    "8": { name: "Color Neon Light", category: "Outputs" },
-    "0": { name: "Color Light", category: "Outputs" },
-    "z": { name: "RGB Light", category: "Outputs" },
+}
 
-    // Utility
 
-    "t": { name: "Sign", category: "Utility" },
-    ">": { name: "Text Panel", category: "Utility" },
-    "X": { name: "EEPROM", category: "Utility" },
-    "#d": { name: "16 Bit EEPROM", category: "Utility" },
-    "#!": { name: "HTTP Transmitter", category: "Utility" },
-    "\"": { name: "Kill Module", category: "Utility" },
-
-    // Timing
-
-    "p": { name: "Delay", category: "Timing" },
-    "q": { name: "Timer", category: "Timing" },
-
-    // Beams
-
-    "\x02": { name: "Beam 1x2", category: "Building" },
-    "\x03": { name: "Beam 1x3", category: "Building" },
-    "#b": { name: "Beam 1x4", category: "Building" },
-    "\x04": { name: "Beam 1x5", category: "Building" },
-    "\x05": { name: "Beam 1x6", category: "Building" },
-    "#c": { name: "Beam 1x7", category: "Building" },
-    "\x06": { name: "Beam 1x8", category: "Building" }
-
-};
-
+/*
+Get block information by ID
+*/
 function getBlock(id) {
 
     return BLOCKS[id] || {
@@ -96,6 +54,10 @@ function getBlock(id) {
 
 }
 
+
+/*
+Get ID from block name
+*/
 function getBlockID(name) {
 
     for (const id in BLOCKS) {
@@ -109,6 +71,10 @@ function getBlockID(name) {
 
 }
 
+
+/*
+Get all blocks sorted alphabetically
+*/
 function getAllBlocks() {
 
     return Object.entries(BLOCKS)
@@ -116,6 +82,14 @@ function getAllBlocks() {
             id,
             ...data
         }))
-        .sort((a, b) => a.name.localeCompare(b.name));
+        .sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
 
 }
+
+
+/*
+Automatically load on startup
+*/
+loadBlocks();
