@@ -1,174 +1,1355 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Logic Save Editor</title>
 
-    <link rel="stylesheet" href="css/main.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Build Logic Save Editor</title>
+
+<link rel="stylesheet" href="main.css?v=1">
+
+<link rel="icon" href="assets/icon.png">
+
 </head>
 
 <body>
 
-<div id="app">
+<!-- ====================================================== -->
+<!-- Startup Loader                                         -->
+<!-- ====================================================== -->
 
-    <!--=========================
-        TITLE BAR
-    ==========================-->
+<div id="startup-screen">
 
-    <header id="titlebar">
+    <div class="startup-window">
 
-        <div class="title">
-            BL Save editor
-            <span class="version">made by azwqxr</span>
-        </div>
+        <h1>Build Logic Save Editor</h1>
 
-        <div class="toolbar">
+        <p id="startup-version">
+            Version 0.2.0
+        </p>
 
-            <button id="importBtn">Import</button>
+        <div id="startup-progress">
 
-            <button id="exportBtn">Export</button>
-
-            <button id="copyBtn">Copy</button>
-
-            <button id="pasteBtn">Paste</button>
-
-            <button id="undoBtn" disabled>Undo</button>
-
-            <button id="redoBtn" disabled>Redo</button>
+            <div id="startup-progress-bar"></div>
 
         </div>
 
-    </header>
+        <pre id="startup-log">
 
+Initializing...
 
-    <!--=========================
-        MAIN
-    ==========================-->
+        </pre>
 
-    <main>
-
-        <!-- LEFT PANEL -->
-
-        <aside id="objectPanel">
-
-            <div class="panelHeader">
-
-                Objects
-
-                <span id="objectCount">0</span>
-
-            </div>
-
-            <input
-                id="searchObjects"
-                type="text"
-                placeholder="Search..."
-            >
-
-            <div id="objectList">
-
-                <!-- Filled by JS -->
-
-            </div>
-
-        </aside>
-
-
-
-        <!-- CENTER -->
-
-        <section id="workspace">
-
-            <div class="panelHeader">
-                Save String
-            </div>
-
-            <textarea
-                id="saveInput"
-                spellcheck="false"
-                placeholder="Paste savestring here..."
-            ></textarea>
-
-            <div id="statusBar">
-
-                Ready
-
-            </div>
-
-        </section>
-
-
-
-        <!-- RIGHT -->
-
-        <aside id="properties">
-
-            <div class="panelHeader">
-
-                Properties
-
-            </div>
-
-            <div id="propertyEditor">
-
-                <div class="empty">
-
-                    No object selected.
-
-                </div>
-
-            </div>
-
-        </aside>
-
-    </main>
-
-
-
-    <!--=========================
-        BOTTOM
-    ==========================-->
-
-    <footer id="bottomPanel">
-
-        <div class="panelHeader">
-
-            Console
-
-        </div>
-
-        <div id="console">
-
-            <div class="consoleLine">
-
-                welcome to azwqxrOS prerelease
-
-            </div>
-
-                 <div class="consoleLineErr">
-
-                version PREALPHA - Non functional version!
-
-            </div>
-
-                   <div class="consoleLine">
-
-                Ready for savestring input
-
-            </div>
-
-        </div>
-
-    </footer>
+    </div>
 
 </div>
 
-<script src="js/blocks.js"></script>
-<script src="js/materials.js"></script>
-<script src="js/parser.js"></script>
-<script src="js/encoder.js"></script>
-<script src="js/app.js"></script>
+<!-- ====================================================== -->
+<!-- Main Application                                       -->
+<!-- ====================================================== -->
+
+<div id="app" class="hidden">
+
+<!-- ====================================================== -->
+<!-- Menu Bar                                               -->
+<!-- ====================================================== -->
+
+<header id="menu-bar">
+
+<nav>
+
+<ul class="menu-root">
+
+<li class="menu-item">
+
+File
+
+<ul class="submenu">
+
+<li id="menu-new">New</li>
+
+<li id="menu-open">Open...</li>
+
+<li id="menu-save">Save</li>
+
+<li id="menu-save-as">Save As...</li>
+
+<li class="separator"></li>
+
+<li id="menu-import">Import Save String</li>
+
+<li id="menu-export">Export Save String</li>
+
+<li class="separator"></li>
+
+<li id="menu-exit">Exit</li>
+
+</ul>
+
+</li>
+
+<li class="menu-item">
+
+Edit
+
+<ul class="submenu">
+
+<li id="undo-button">Undo</li>
+
+<li id="redo-button">Redo</li>
+
+<li class="separator"></li>
+
+<li id="copy-button">Copy</li>
+
+<li id="cut-button">Cut</li>
+
+<li id="paste-button">Paste</li>
+
+<li id="duplicate-button">Duplicate</li>
+
+<li class="separator"></li>
+
+<li id="delete-button">Delete</li>
+
+</ul>
+
+</li>
+
+<li class="menu-item">
+
+View
+
+<ul class="submenu">
+
+<li id="toggle-grid">Grid</li>
+
+<li id="toggle-wires">Wires</li>
+
+<li id="toggle-console">Console</li>
+
+<li id="toggle-inspector">Inspector</li>
+
+<li id="toggle-components">Components</li>
+
+<li id="toggle-plugin-manager">Plugin Manager</li>
+
+</ul>
+
+</li>
+
+<li class="menu-item">
+
+Plugins
+
+<ul class="submenu">
+
+<li id="reload-plugins">
+Reload Plugins
+</li>
+
+<li id="plugin-manager">
+Plugin Manager
+</li>
+
+</ul>
+
+</li>
+
+<li class="menu-item">
+
+Help
+
+<ul class="submenu">
+
+<li id="show-shortcuts">
+Keyboard Shortcuts
+</li>
+
+<li id="show-about">
+About
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ====================================================== -->
+<!-- Toolbar                                                -->
+<!-- ====================================================== -->
+
+<section id="toolbar">
+
+<button id="tool-select" title="Select Tool">
+
+🖱 Select
+
+</button>
+
+<button id="tool-wire" title="Wire Tool">
+
+🔌 Wire
+
+</button>
+
+<button id="tool-pan">
+
+✋ Pan
+
+</button>
+
+<button id="tool-move">
+
+➜ Move
+
+</button>
+
+<button id="tool-rotate">
+
+⟳ Rotate
+
+</button>
+
+<button id="tool-delete">
+
+🗑 Delete
+
+</button>
+
+<div class="toolbar-divider"></div>
+
+<button id="zoom-in">
+
+＋
+
+</button>
+
+<button id="zoom-out">
+
+－
+
+</button>
+
+<button id="zoom-reset">
+
+100%
+
+</button>
+
+<div class="toolbar-divider"></div>
+
+<label>
+
+Layer
+
+<select id="layer-selector">
+
+<option>0</option>
+
+</select>
+
+</label>
+
+<div class="toolbar-divider"></div>
+
+<input
+type="text"
+id="search-components"
+placeholder="Search Components..."
+autocomplete="off">
+
+</section>
+
+<!-- ====================================================== -->
+<!-- Workspace                                              -->
+<!-- ====================================================== -->
+
+<div id="workspace">
+    <!-- ====================================================== -->
+<!-- Left Sidebar                                            -->
+<!-- ====================================================== -->
+
+<aside id="component-browser">
+
+    <div class="panel-header">
+
+        <span>Components</span>
+
+        <button id="refresh-components"
+                title="Reload Component Plugins">
+            ↻
+        </button>
+
+    </div>
+
+    <div class="panel-toolbar">
+
+        <input
+            id="component-search"
+            type="text"
+            placeholder="Search...">
+
+    </div>
+
+    <div id="component-categories">
+
+        <details open>
+
+            <summary>Logic</summary>
+
+            <div
+                class="component-list"
+                id="category-logic">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Inputs / Outputs</summary>
+
+            <div
+                class="component-list"
+                id="category-io">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Memory</summary>
+
+            <div
+                class="component-list"
+                id="category-memory">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Displays</summary>
+
+            <div
+                class="component-list"
+                id="category-display">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Lighting</summary>
+
+            <div
+                class="component-list"
+                id="category-light">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Mechanical</summary>
+
+            <div
+                class="component-list"
+                id="category-mechanical">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Network</summary>
+
+            <div
+                class="component-list"
+                id="category-network">
+            </div>
+
+        </details>
+
+        <details open>
+
+            <summary>Experimental</summary>
+
+            <div
+                class="component-list"
+                id="category-experimental">
+            </div>
+
+        </details>
+
+    </div>
+
+</aside>
+
+<!-- ====================================================== -->
+<!-- Editor Viewport                                         -->
+<!-- ====================================================== -->
+
+<main id="editor-container">
+
+    <div id="viewport-toolbar">
+
+        <span id="world-name">
+
+            Untitled World
+
+        </span>
+
+        <div class="viewport-spacer"></div>
+
+        <button id="toggle-grid-button">
+
+            Grid
+
+        </button>
+
+        <button id="toggle-wire-button">
+
+            Wires
+
+        </button>
+
+        <button id="toggle-node-button">
+
+            Nodes
+
+        </button>
+
+        <button id="center-world">
+
+            Center
+
+        </button>
+
+    </div>
+
+    <div id="canvas-container">
+
+        <canvas
+            id="editor-canvas"
+            tabindex="0"></canvas>
+
+        <canvas
+            id="wire-canvas"></canvas>
+
+        <div id="selection-box"></div>
+
+        <div id="drag-preview"></div>
+
+        <div id="coordinate-overlay">
+
+            X:
+            <span id="coord-x">0</span>
+
+            Y:
+            <span id="coord-y">0</span>
+
+            Z:
+            <span id="coord-z">0</span>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ====================================================== -->
+<!-- Inspector                                               -->
+<!-- ====================================================== -->
+
+<aside id="inspector">
+
+    <div class="panel-header">
+
+        Inspector
+
+    </div>
+
+    <div id="nothing-selected">
+
+        No component selected.
+
+    </div>
+
+    <div id="inspector-content">
+
+        <section class="inspector-group">
+
+            <h3>
+
+                General
+
+            </h3>
+
+            <div id="general-properties"></div>
+
+        </section>
+
+        <section class="inspector-group">
+
+            <h3>
+
+                Transform
+
+            </h3>
+
+            <div id="transform-properties"></div>
+
+        </section>
+
+        <section class="inspector-group">
+
+            <h3>
+
+                Component Settings
+
+            </h3>
+
+            <div id="component-properties"></div>
+
+        </section>
+
+        <section class="inspector-group">
+
+            <h3>
+
+                Wires
+
+            </h3>
+
+            <div id="wire-properties"></div>
+
+        </section>
+
+        <section class="inspector-group">
+
+            <h3>
+
+                Plugin Information
+
+            </h3>
+
+            <div id="plugin-properties"></div>
+
+        </section>
+
+    </div>
+
+</aside>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Status Bar                                              -->
+<!-- ====================================================== -->
+
+<footer id="status-bar">
+
+    <div id="status-left">
+
+        Ready
+
+    </div>
+
+    <div id="status-center">
+
+        <span>
+
+            Components:
+            <strong id="status-components">
+                0
+            </strong>
+
+        </span>
+
+        <span>
+
+            Wires:
+            <strong id="status-wires">
+                0
+            </strong>
+
+        </span>
+
+        <span>
+
+            Plugins:
+            <strong id="status-plugins">
+                0
+            </strong>
+
+        </span>
+
+    </div>
+
+    <div id="status-right">
+
+        Zoom
+
+        <span id="status-zoom">
+
+            100%
+
+        </span>
+
+    </div>
+
+</footer>
+<!-- ====================================================== -->
+<!-- Plugin Manager                                          -->
+<!-- ====================================================== -->
+
+<div id="plugin-manager-window" class="window hidden">
+
+    <div class="window-title">
+
+        <span>Plugin Manager</span>
+
+        <button class="window-close"
+                data-window="plugin-manager-window">
+            ✕
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <div class="plugin-toolbar">
+
+            <button id="reload-all-plugins">
+                Reload Plugins
+            </button>
+
+            <button id="validate-plugins">
+                Validate
+            </button>
+
+            <button id="refresh-plugin-list">
+                Refresh
+            </button>
+
+        </div>
+
+        <table id="plugin-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>Author</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="plugin-table-body">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Console Window                                          -->
+<!-- ====================================================== -->
+
+<div id="console-window" class="window">
+
+    <div class="window-title">
+
+        <span>Console</span>
+
+        <button class="window-close"
+                data-window="console-window">
+            ✕
+        </button>
+
+    </div>
+
+    <div id="console-output">
+
+    </div>
+
+    <div id="console-input-row">
+
+        <input
+            id="console-input"
+            placeholder="Enter command...">
+
+        <button id="console-send">
+
+            Run
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- World Properties                                        -->
+<!-- ====================================================== -->
+
+<div id="world-properties-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>World Properties</span>
+
+        <button class="window-close"
+                data-window="world-properties-window">
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <label>
+
+            Name
+
+            <input
+                id="world-name-input"
+                type="text">
+
+        </label>
+
+        <label>
+
+            Author
+
+            <input
+                id="world-author-input"
+                type="text">
+
+        </label>
+
+        <label>
+
+            Description
+
+            <textarea
+                id="world-description"></textarea>
+
+        </label>
+
+        <label>
+
+            Spawn X
+
+            <input
+                id="spawn-x"
+                type="number">
+
+        </label>
+
+        <label>
+
+            Spawn Y
+
+            <input
+                id="spawn-y"
+                type="number">
+
+        </label>
+
+        <label>
+
+            Spawn Z
+
+            <input
+                id="spawn-z"
+                type="number">
+
+        </label>
+
+        <button id="save-world-properties">
+
+            Save
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- About Window                                            -->
+<!-- ====================================================== -->
+
+<div id="about-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>About</span>
+
+        <button class="window-close"
+                data-window="about-window">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <h2>
+
+            Build Logic Save Editor
+
+        </h2>
+
+        <p>
+
+            Open Source Save Editor
+
+        </p>
+
+        <p>
+
+            Plugin Based Architecture
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            Parser Version:
+            <span id="about-parser-version"></span>
+
+        </p>
+
+        <p>
+
+            Encoder Version:
+            <span id="about-encoder-version"></span>
+
+        </p>
+
+        <p>
+
+            Wire Version:
+            <span id="about-wire-version"></span>
+
+        </p>
+
+        <p>
+
+            Renderer Version:
+            <span id="about-renderer-version"></span>
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Keyboard Shortcuts                                      -->
+<!-- ====================================================== -->
+
+<div id="shortcuts-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>Keyboard Shortcuts</span>
+
+        <button class="window-close"
+                data-window="shortcuts-window">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <table>
+
+            <tr><td>Ctrl+O</td><td>Open</td></tr>
+
+            <tr><td>Ctrl+S</td><td>Save</td></tr>
+
+            <tr><td>Ctrl+Shift+S</td><td>Save As</td></tr>
+
+            <tr><td>Ctrl+Z</td><td>Undo</td></tr>
+
+            <tr><td>Ctrl+Y</td><td>Redo</td></tr>
+
+            <tr><td>Delete</td><td>Delete Selected</td></tr>
+
+            <tr><td>Ctrl+C</td><td>Copy</td></tr>
+
+            <tr><td>Ctrl+V</td><td>Paste</td></tr>
+
+            <tr><td>Space</td><td>Pan View</td></tr>
+
+            <tr><td>Mouse Wheel</td><td>Zoom</td></tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Save String Import                                      -->
+<!-- ====================================================== -->
+
+<div id="import-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>Import Save String</span>
+
+        <button class="window-close"
+                data-window="import-window">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <textarea
+            id="import-textarea"
+            spellcheck="false"
+            placeholder="Paste Build Logic Save String..."></textarea>
+
+        <button id="import-save-button">
+
+            Import
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Save String Export                                      -->
+<!-- ====================================================== -->
+
+<div id="export-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>Export Save String</span>
+
+        <button class="window-close"
+                data-window="export-window">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="window-body">
+
+        <textarea
+            id="export-textarea"
+            readonly
+            spellcheck="false"></textarea>
+
+        <button id="copy-save-string">
+
+            Copy
+
+        </button>
+
+        <button id="download-save-string">
+
+            Download
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Notifications                                           -->
+<!-- ====================================================== -->
+
+<div id="toast-container">
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Loading Overlay                                         -->
+<!-- ====================================================== -->
+
+<div id="loading-overlay" class="hidden">
+
+    <div class="loading-box">
+
+        <h2>
+
+            Loading...
+
+        </h2>
+
+        <div class="loading-progress">
+
+            <div id="loading-progress-fill"></div>
+
+        </div>
+
+        <p id="loading-status">
+
+            Preparing editor...
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ====================================================== -->
+<!-- Error Dialog                                            -->
+<!-- ====================================================== -->
+
+<div id="error-window"
+     class="window hidden">
+
+    <div class="window-title">
+
+        <span>Error</span>
+
+    </div>
+
+    <div class="window-body">
+
+        <pre id="error-message">
+
+        </pre>
+
+        <button id="close-error">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ====================================================== -->
+<!-- JavaScript Modules                                     -->
+<!-- ====================================================== -->
+
+<script>
+
+window.BLSE_VERSION = "0.2.0";
+
+window.BLSE_BUILD = Date.now();
+
+window.BLSE = {
+
+    version: window.BLSE_VERSION,
+
+    build: window.BLSE_BUILD,
+
+    loadedModules: [],
+
+    plugins: [],
+
+    ready: false
+
+};
+
+function logStartup(text){
+
+    const log =
+        document.getElementById("startup-log");
+
+    if(!log) return;
+
+    log.textContent += "\n" + text;
+
+}
+
+function updateProgress(percent){
+
+    const bar =
+        document.getElementById(
+            "startup-progress-bar"
+        );
+
+    if(bar){
+
+        bar.style.width =
+            percent + "%";
+
+    }
+
+}
+
+</script>
+
+<script>
+
+const MODULES = [
+
+    "materials.js",
+
+    "items.js",
+
+    "blocks.js",
+
+    "parser.js",
+
+    "encoder.js",
+
+    "world.js",
+
+    "wire.js",
+
+    "renderer.js",
+
+    "inspector.js",
+
+    "pluginRegistry.js",
+
+    "main.js"
+
+];
+
+async function loadModules(){
+
+    let completed = 0;
+
+    for(const file of MODULES){
+
+        await new Promise((resolve,reject)=>{
+
+            const script =
+                document.createElement("script");
+
+            script.src =
+                "js/" +
+                file +
+                "?v=" +
+                BLSE_BUILD;
+
+            script.onload = ()=>{
+
+                completed++;
+
+                BLSE.loadedModules.push(file);
+
+                logStartup("✓ " + file);
+
+                updateProgress(
+
+                    completed /
+                    MODULES.length *
+                    100
+
+                );
+
+                resolve();
+
+            };
+
+            script.onerror = ()=>{
+
+                logStartup(
+
+                    "✗ Failed: " +
+                    file
+
+                );
+
+                reject(file);
+
+            };
+
+            document.body.appendChild(script);
+
+        });
+
+    }
+
+}
+
+</script>
+
+<script>
+
+function validateEditor(){
+
+    const required = [
+
+        "Parser",
+
+        "Encoder",
+
+        "World",
+
+        "WireCollection",
+
+        "WireRenderer"
+
+    ];
+
+    let ok = true;
+
+    required.forEach(name=>{
+
+        if(window[name]){
+
+            logStartup(
+                "✓ " + name
+            );
+
+        }else{
+
+            ok = false;
+
+            logStartup(
+                "✗ Missing " +
+                name
+            );
+
+        }
+
+    });
+
+    return ok;
+
+}
+
+</script>
+
+<script>
+
+function initializeEditor(){
+
+    logStartup("");
+
+    logStartup("Initializing...");
+
+    if(!validateEditor()){
+
+        alert(
+            "Editor failed to initialize."
+        );
+
+        return;
+
+    }
+
+    if(window.PluginRegistry){
+
+        PluginRegistry.loadAll();
+
+        BLSE.plugins =
+            PluginRegistry.plugins;
+
+        logStartup(
+
+            "✓ Plugins: " +
+
+            BLSE.plugins.length
+
+        );
+
+    }
+
+    document
+        .getElementById(
+            "startup-screen"
+        )
+        .style.display = "none";
+
+    document
+        .getElementById("app")
+        .classList
+        .remove("hidden");
+
+    BLSE.ready = true;
+
+    logStartup("Ready.");
+
+}
+
+</script>
+
+<script>
+
+(async()=>{
+
+    try{
+
+        logStartup(
+            "Loading modules..."
+        );
+
+        await loadModules();
+
+        initializeEditor();
+
+    }catch(error){
+
+        console.error(error);
+
+        const e =
+            document.getElementById(
+                "error-window"
+            );
+
+        if(e){
+
+            e.classList.remove(
+                "hidden"
+            );
+
+            document
+                .getElementById(
+                    "error-message"
+                )
+                .textContent =
+
+                String(error);
+
+        }
+
+    }
+
+})();
+
+</script>
 
 </body>
 </html>
