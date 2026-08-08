@@ -1,1 +1,1 @@
-![Static Badge](https://img.shields.io/badge/:hello-world)
+![Static Badge](https://img.shields.io/badge/hello_world)
