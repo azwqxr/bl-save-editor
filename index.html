@@ -1171,22 +1171,26 @@ async function loadModules(){
                 "?v=" +
                 BLSE_BUILD;
 
-            script.onload = ()=>{
+script.onload = () => {
 
-                completed++;
+    completed++;
 
-                BLSE.loadedModules.push(file);
+    // Ensure BLSE and loadedModules exist before using them.
+    window.BLSE = window.BLSE || {};
 
-                logStartup("✓ " + file);
+    if (!Array.isArray(window.BLSE.loadedModules)) {
+        window.BLSE.loadedModules = [];
+    }
 
-                updateProgress(
+    window.BLSE.loadedModules.push(file);
 
-                    completed /
-                    MODULES.length *
-                    100
+    logStartup("✓ " + file);
 
-                );
-
+    updateProgress(
+        completed /
+        MODULES.length *
+        100
+    );
                 resolve();
 
             };
