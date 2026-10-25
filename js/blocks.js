@@ -14,7 +14,7 @@ async function loadBlocks() {
 
     try {
 
-        const response = await fetch("/ItemsList.json");
+        const response = await fetch("https://azwqxr.github.io/bl-save-editor/ItemsList.json");
 
         if (!response.ok) {
             throw new Error(
