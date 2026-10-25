@@ -1151,6 +1151,9 @@ const MODULES = [
 
 ];
 
+    window.BLSE = window.BLSE || {};
+BLSE.loadedModules = BLSE.loadedModules || [];
+    
 async function loadModules(){
 
     let completed = 0;
